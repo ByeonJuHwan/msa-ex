@@ -5,3 +5,6 @@ rootProject.name = "msa-ex"
 
 include("user-service")
 include("discovery-service")
+include("apigateway-service")
+include("first-service")
+include("second-service")
