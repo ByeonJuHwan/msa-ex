@@ -1,11 +1,22 @@
 package dev.be.userservice.controller
 
+import dev.be.userservice.dto.UserDto
+import dev.be.userservice.service.UserService
+import dev.be.userservice.vo.RequestUser
+import dev.be.userservice.vo.ResponseUser
+import dev.be.userservice.vo.toDto
 import org.springframework.beans.factory.annotation.Value
+import org.springframework.http.HttpStatus
+import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
-class UserController {
+class UserController (
+    private val userService: UserService,
+) {
 
     @Value("\${greeting.message}")
     private lateinit var message: String
@@ -13,5 +24,11 @@ class UserController {
     @GetMapping("/heath_check")
     fun status(): String {
         return message
+    }
+
+    @PostMapping("/users")
+    fun createUser(@RequestBody user: RequestUser): ResponseEntity<ResponseUser> {
+        val createUser = userService.createUser(user.toDto())
+        return ResponseEntity.status(HttpStatus.CREATED).body(ResponseUser.of(createUser))
     }
 }

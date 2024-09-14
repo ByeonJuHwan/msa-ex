@@ -4,8 +4,10 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     kotlin("jvm") version "2.0.10"
     kotlin("plugin.spring") version "2.0.10" apply false
+    kotlin("kapt") version "1.9.24" apply false
+    kotlin("plugin.jpa") version "1.9.24" apply false
     id("org.springframework.boot") version "3.3.3" apply false
-   	id("io.spring.dependency-management") version "1.1.6" apply false
+    id("io.spring.dependency-management") version "1.1.6" apply false
 }
 
 // 모든 프로젝트에 공통으로 적용될 설정
@@ -38,7 +40,7 @@ subprojects {
     apply(plugin = "org.springframework.boot")
     apply(plugin = "io.spring.dependency-management")
     apply(plugin = "org.jetbrains.kotlin.plugin.spring")
-    //apply(plugin = "org.jetbrains.kotlin.plugin.jpa")
+    apply(plugin = "org.jetbrains.kotlin.plugin.jpa")
     apply(plugin = "kotlin")
     apply(plugin = "kotlin-kapt")
 
