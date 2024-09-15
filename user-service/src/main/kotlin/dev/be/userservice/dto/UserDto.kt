@@ -17,5 +17,5 @@ fun UserDto.toEntity() : UserEntity = UserEntity(
     email = email,
     name = name,
     userId = userId,
-    encryptedPwd = "encrypted_Pwd",
+    encryptedPwd = pwd,
 )

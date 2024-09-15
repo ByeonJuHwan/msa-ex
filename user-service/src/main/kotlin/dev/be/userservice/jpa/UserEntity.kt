@@ -19,6 +19,6 @@ class UserEntity(
     val userId : String,
 
     @Column(nullable = false, unique = true)
-    val encryptedPwd : String,
+    var encryptedPwd : String,
 ) {
 }
