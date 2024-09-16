@@ -18,12 +18,15 @@ class UserController (
     private val userService: UserService,
 ) {
 
+    @Value("\${local.server.port}")
+    private lateinit var portNum : String
+
     @Value("\${greeting.message}")
     private lateinit var message: String
 
     @GetMapping("/heath_check")
     fun status(): String {
-        return message
+        return "It's Working in User Service on PORT $portNum"
     }
 
     @PostMapping("/users")

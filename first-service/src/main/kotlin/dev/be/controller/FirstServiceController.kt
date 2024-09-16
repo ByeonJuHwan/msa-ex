@@ -19,4 +19,9 @@ class FirstServiceController {
         println("header ${header}")
         return "Message from FirstService"
     }
+
+    @GetMapping("/check")
+    fun check () : String {
+        return "Hi, there. this is a message from first service"
+    }
 }
