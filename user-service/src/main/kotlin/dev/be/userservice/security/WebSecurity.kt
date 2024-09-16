@@ -21,6 +21,7 @@ class WebSecurity {
             .authorizeHttpRequests { authorize ->
                 authorize
                     .requestMatchers("/users/**").permitAll()
+                    .requestMatchers("/user-service/**").permitAll()
                     .requestMatchers("/h2-console/**").permitAll()  // H2 콘솔 접근 허용
                     .anyRequest().authenticated()
             }
