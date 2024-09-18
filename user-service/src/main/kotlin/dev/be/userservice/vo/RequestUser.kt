@@ -15,5 +15,6 @@ fun RequestUser.toDto() : UserDto = UserDto(
     pwd = pwd,
     userId = "초기값",
     createdAt = LocalDateTime.now(),
-    encryptedPwd = "초기값"
+    encryptedPwd = "초기값",
+    orders = null,
 )

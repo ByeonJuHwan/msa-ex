@@ -24,4 +24,19 @@ class UserController (
         val createUser = userService.createUser(user.toDto())
         return ResponseEntity.status(HttpStatus.CREATED).body(ResponseUser.of(createUser))
     }
+
+    @GetMapping("/users")
+    fun getUsers() : ResponseEntity<List<ResponseUser>> {
+        val userList = userService.getUserByAll().map {
+            user -> ResponseUser.of(user)
+        }
+
+        return ResponseEntity.status(HttpStatus.OK).body(userList)
+    }
+
+    @GetMapping("/users/{userId}")
+    fun getUser(@PathVariable userId : String) : ResponseEntity<ResponseUser> {
+        val userDto = userService.getUserByUserId(userId)
+        return ResponseEntity.status(HttpStatus.OK).body(ResponseUser.of(userDto))
+    }
 }
