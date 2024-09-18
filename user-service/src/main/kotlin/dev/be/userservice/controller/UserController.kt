@@ -16,7 +16,7 @@ class UserController (
 
     @GetMapping("/heath_check")
     fun status(): String {
-        return "It's Working in User Service on PORT test"
+        return "It's Working in User Service on PORT test1"
     }
 
     @PostMapping("/users")
